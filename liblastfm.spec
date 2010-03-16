@@ -1,6 +1,6 @@
 Name: liblastfm
 Version: 0.3.0
-Release: %mkrel 1
+Release: %mkrel 2
 Summary: Liblastfm is a collection of libraries to help you integrate Last.fm services
 License: GPLv3 
 Group: System/Libraries
