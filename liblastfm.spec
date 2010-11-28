@@ -1,11 +1,12 @@
 Name: liblastfm
-Version: 0.3.2
+Version: 0.3.3
 Release: %mkrel 1
 Summary: Liblastfm is a collection of libraries to help you integrate Last.fm services
 License: GPLv3 
 Group: System/Libraries
-Source:	http://cdn.last.fm/src/liblastfm-0.3.0.tar.bz2
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
+Source: http://download.github.com/liblastfm-%{version}.tar.gz
+URL: https://github.com/mxcl/liblastfm
+BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires: qt4-devel
 BuildRequires: pkgconfig 
 BuildRequires: libsamplerate-devel
@@ -78,7 +79,7 @@ using the libtag library.
 #---------------------------------------------------------------------
 
 %prep
-%setup -qn %{name}-0.3.0
+%setup -qn mxcl-liblastfm-1c739eb
 
 %build
 %if "%_lib" == "lib64"
@@ -89,8 +90,6 @@ using the libtag library.
 
 # This is a ruby configure, not standard one
 ./configure --prefix %{_prefix}
-
-
 %make
 
 %install
