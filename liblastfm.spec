@@ -1,6 +1,6 @@
 Name: liblastfm
-Version: 0.3.0
-Release: %mkrel 2
+Version: 0.3.2
+Release: %mkrel 1
 Summary: Liblastfm is a collection of libraries to help you integrate Last.fm services
 License: GPLv3 
 Group: System/Libraries
@@ -78,7 +78,7 @@ using the libtag library.
 #---------------------------------------------------------------------
 
 %prep
-%setup -q 
+%setup -qn %{name}-0.3.0
 
 %build
 %if "%_lib" == "lib64"
