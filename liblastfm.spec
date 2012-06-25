@@ -1,17 +1,17 @@
 Name: liblastfm
-Version: 0.3.3
-Release: %mkrel 2
+Version: 1.0.1
+Release: 1
 Summary: Liblastfm is a collection of libraries to help you integrate Last.fm services
 License: GPLv3 
 Group: System/Libraries
-Source: http://download.github.com/liblastfm-%{version}.tar.gz
+Source0: http://download.github.com/liblastfm-%{version}.tar.gz
 URL: https://github.com/mxcl/liblastfm
-BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires: qt4-devel
 BuildRequires: pkgconfig 
 BuildRequires: libsamplerate-devel
 BuildRequires: fftw3-devel
 BuildRequires: ruby
+BuildRequires: cmake
 
 %description
 Liblastfm is a collection of libraries to help you integrate Last.fm services
@@ -20,7 +20,7 @@ by Last.fm staff.
 
 #---------------------------------------------------------------------
 
-%define lastfm_major 0
+%define lastfm_major 1
 %define libname %mklibname lastfm %{lastfm_major}
 
 %package -n %{libname}
@@ -33,12 +33,11 @@ into your rich desktop software. It is officially supported software developed
 by Last.fm staff.
 
 %files -n %{libname}
-%defattr(-,root,root)
 %{_libdir}/liblastfm.so.%{lastfm_major}*
 
 #---------------------------------------------------------------------
 
-%define finger_major 0
+%define finger_major 1
 %define libnamefinger %mklibname lastfm_fingerprint %{finger_major}
 
 %package -n %{libnamefinger}
@@ -51,7 +50,6 @@ into your rich desktop software. It is officially supported software developed
 by Last.fm staff.
 
 %files -n %{libnamefinger}
-%defattr(-,root,root)
 %{_libdir}/liblastfm_fingerprint.so.%{finger_major}*
 
 #---------------------------------------------------------------------
@@ -71,15 +69,14 @@ Install this package if you want do compile applications i
 using the libtag library.
 
 %files -n %{develname}
-%defattr(-,root,root)
-%doc README COPYING
+%doc COPYING
 %{_libdir}/*.so
 %{_includedir}/*
 
 #---------------------------------------------------------------------
 
 %prep
-%setup -qn mxcl-liblastfm-1c739eb
+%setup -q
 
 %build
 %if "%_lib" == "lib64"
@@ -88,13 +85,10 @@ using the libtag library.
 	done
 %endif
 
-# This is a ruby configure, not standard one
-./configure --prefix %{_prefix}
+%cmake -DBUILD_FINGERPRINT=ON
 %make
 
 %install
-rm -rf %{buildroot}
+pushd build
 %makeinstall_std
-
-%clean
-rm -rf %{buildroot}
+popd
