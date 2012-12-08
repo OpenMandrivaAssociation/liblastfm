@@ -1,17 +1,16 @@
-Name: liblastfm
-Version: 1.0.1
-Release: 1
-Summary: Liblastfm is a collection of libraries to help you integrate Last.fm services
-License: GPLv3 
-Group: System/Libraries
-Source0: http://download.github.com/liblastfm-%{version}.tar.gz
-URL: https://github.com/mxcl/liblastfm
-BuildRequires: qt4-devel
-BuildRequires: pkgconfig 
-BuildRequires: libsamplerate-devel
-BuildRequires: fftw3-devel
-BuildRequires: ruby
-BuildRequires: cmake
+Name:		liblastfm
+Version:	1.0.3
+Release:	1
+Summary:	Liblastfm is a collection of libraries to help you integrate Last.fm services
+License:	GPLv3
+Group:		System/Libraries
+Source0:	http://cdn.last.fm/client/%{name}-%{version}.tar.gz
+URL:		https://github.com/mxcl/liblastfm
+BuildRequires:	qt4-devel
+BuildRequires:	pkgconfig(samplerate)
+BuildRequires:	pkgconfig(fftw3)
+BuildRequires:	ruby
+BuildRequires:	cmake
 
 %description
 Liblastfm is a collection of libraries to help you integrate Last.fm services
@@ -24,8 +23,8 @@ by Last.fm staff.
 %define libname %mklibname lastfm %{lastfm_major}
 
 %package -n %{libname}
-Group: System/Libraries
-Summary: Liblastfm is a collection of libraries to help you integrate Last.fm services
+Group:		System/Libraries
+Summary:	Liblastfm is a collection of libraries to help you integrate Last.fm services
 
 %description -n %{libname}
 Liblastfm is a collection of libraries to help you integrate Last.fm services
@@ -41,8 +40,8 @@ by Last.fm staff.
 %define libnamefinger %mklibname lastfm_fingerprint %{finger_major}
 
 %package -n %{libnamefinger}
-Group: System/Libraries
-Summary: Liblastfm is a collection of libraries to help you integrate Last.fm services
+Group:		System/Libraries
+Summary:	Liblastfm is a collection of libraries to help you integrate Last.fm services
 
 %description -n %{libnamefinger}
 Liblastfm is a collection of libraries to help you integrate Last.fm services
@@ -57,14 +56,13 @@ by Last.fm staff.
 %define develname %mklibname lastfm -d
 
 %package -n %{develname}
-Group: Development/C
-Summary: %name development header
+Group:		Development/C
+Summary:	%{name} development header
 Requires:	%{libname} = %{version}-%{release}
 Requires:	%{libnamefinger} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 
 %description -n %{develname}
-Summary: %name development header
 Install this package if you want do compile applications i
 using the libtag library.
 
@@ -89,6 +87,4 @@ using the libtag library.
 %make
 
 %install
-pushd build
-%makeinstall_std
-popd
+%makeinstall_std -C build
