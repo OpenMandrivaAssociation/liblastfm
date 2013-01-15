@@ -1,11 +1,11 @@
 Name:		liblastfm
-Version:	1.0.3
+Version:	1.0.5
 Release:	1
 Summary:	Liblastfm is a collection of libraries to help you integrate Last.fm services
 License:	GPLv3
 Group:		System/Libraries
-Source0:	http://cdn.last.fm/client/%{name}-%{version}.tar.gz
 URL:		https://github.com/mxcl/liblastfm
+Source0:	http://cdn.last.fm/client/%{name}-%{version}.tar.gz
 BuildRequires:	qt4-devel
 BuildRequires:	pkgconfig(samplerate)
 BuildRequires:	pkgconfig(fftw3)
