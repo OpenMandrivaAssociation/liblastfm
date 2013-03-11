@@ -1,5 +1,5 @@
 Name:		liblastfm
-Version:	1.0.6
+Version:	1.0.7
 Release:	1
 Summary:	Liblastfm is a collection of libraries to help you integrate Last.fm services
 License:	GPLv3
@@ -77,7 +77,7 @@ using the libtag library.
 %setup -q
 
 %build
-%if "%_lib" == "lib64"
+%if "%{_lib}" == "lib64"
 	for name in $(find . -name *.pro); do
 		sed -i "s,target.path.*, target.path = /lib64,g" $name
 	done
