@@ -1,26 +1,26 @@
+%define major 1
+%define libname %mklibname lastfm %{major}
+%define libnamefinger %mklibname lastfm_fingerprint %{major}
+%define devname %mklibname lastfm -d
+
+Summary:	Liblastfm is a collection of libraries to help you integrate Last.fm services
 Name:		liblastfm
 Version:	1.0.7
 Release:	1
-Summary:	Liblastfm is a collection of libraries to help you integrate Last.fm services
 License:	GPLv3
 Group:		System/Libraries
-URL:		https://github.com/mxcl/liblastfm
+Url:		https://github.com/mxcl/liblastfm
 Source0:	http://cdn.last.fm/client/%{name}-%{version}.tar.gz
+BuildRequires:	cmake
+BuildRequires:	ruby
 BuildRequires:	qt4-devel
 BuildRequires:	pkgconfig(samplerate)
 BuildRequires:	pkgconfig(fftw3)
-BuildRequires:	ruby
-BuildRequires:	cmake
 
 %description
 Liblastfm is a collection of libraries to help you integrate Last.fm services
 into your rich desktop software. It is officially supported software developed
 by Last.fm staff.
-
-#---------------------------------------------------------------------
-
-%define lastfm_major 1
-%define libname %mklibname lastfm %{lastfm_major}
 
 %package -n %{libname}
 Group:		System/Libraries
@@ -31,14 +31,6 @@ Liblastfm is a collection of libraries to help you integrate Last.fm services
 into your rich desktop software. It is officially supported software developed
 by Last.fm staff.
 
-%files -n %{libname}
-%{_libdir}/liblastfm.so.%{lastfm_major}*
-
-#---------------------------------------------------------------------
-
-%define finger_major 1
-%define libnamefinger %mklibname lastfm_fingerprint %{finger_major}
-
 %package -n %{libnamefinger}
 Group:		System/Libraries
 Summary:	Liblastfm is a collection of libraries to help you integrate Last.fm services
@@ -48,30 +40,16 @@ Liblastfm is a collection of libraries to help you integrate Last.fm services
 into your rich desktop software. It is officially supported software developed
 by Last.fm staff.
 
-%files -n %{libnamefinger}
-%{_libdir}/liblastfm_fingerprint.so.%{finger_major}*
-
-#---------------------------------------------------------------------
-
-%define develname %mklibname lastfm -d
-
-%package -n %{develname}
+%package -n %{devname}
 Group:		Development/C
 Summary:	%{name} development header
 Requires:	%{libname} = %{version}-%{release}
 Requires:	%{libnamefinger} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 
-%description -n %{develname}
+%description -n %{devname}
 Install this package if you want do compile applications i
 using the libtag library.
-
-%files -n %{develname}
-%doc COPYING
-%{_libdir}/*.so
-%{_includedir}/*
-
-#---------------------------------------------------------------------
 
 %prep
 %setup -q
@@ -88,3 +66,15 @@ using the libtag library.
 
 %install
 %makeinstall_std -C build
+
+%files -n %{libname}
+%{_libdir}/liblastfm.so.%{major}*
+
+%files -n %{libnamefinger}
+%{_libdir}/liblastfm_fingerprint.so.%{major}*
+
+%files -n %{devname}
+%doc COPYING
+%{_libdir}/*.so
+%{_includedir}/*
+
