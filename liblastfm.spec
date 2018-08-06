@@ -13,9 +13,15 @@ Url:		https://github.com/lastfm/liblastfm
 Source0:	https://github.com/lastfm/liblastfm/archive/%{version}/%{name}-%{version}.tar.gz
 BuildRequires:	cmake
 BuildRequires:	ruby
-BuildRequires:	qt4-devel
+#BuildRequires:	qt4-devel
 BuildRequires:	pkgconfig(samplerate)
 BuildRequires:	pkgconfig(fftw3)
+#qt5
+BuildRequires:  pkgconfig(Qt5DBus)
+BuildRequires:  pkgconfig(Qt5Network)
+BuildRequires:  pkgconfig(Qt5Sql)
+BuildRequires:  pkgconfig(Qt5Xml)
+BuildRequires:  pkgconfig(Qt5Test) 	
 
 %description
 Liblastfm is a collection of libraries to help you integrate Last.fm services
@@ -61,7 +67,7 @@ using the libtag library.
 	done
 %endif
 
-%cmake -DBUILD_FINGERPRINT=ON
+%cmake -DBUILD_FINGERPRINT=ON -DBUILD_WITH_QT4=OFF ../..
 %make
 
 %install
