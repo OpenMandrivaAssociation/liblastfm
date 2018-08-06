@@ -9,8 +9,8 @@ Version:	1.0.9
 Release:	1
 License:	GPLv3
 Group:		System/Libraries
-Url:		https://github.com/mxcl/liblastfm
-Source0:	http://cdn.last.fm/client/%{name}-%{version}.tar.gz
+Url:		https://github.com/lastfm/liblastfm
+Source0:	https://github.com/lastfm/liblastfm/archive/%{version}/%{name}-%{version}.tar.gz
 BuildRequires:	cmake
 BuildRequires:	ruby
 BuildRequires:	qt4-devel
