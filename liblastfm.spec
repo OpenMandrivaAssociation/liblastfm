@@ -6,7 +6,7 @@
 Summary:	Liblastfm is a collection of libraries to help you integrate Last.fm services
 Name:		liblastfm
 Version:	1.0.7
-Release:	9
+Release:	10
 License:	GPLv3
 Group:		System/Libraries
 Url:		https://github.com/mxcl/liblastfm
