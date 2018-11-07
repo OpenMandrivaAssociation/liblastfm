@@ -67,11 +67,11 @@ using the libtag library.
 %autopatch -p1
 
 %build
-%if "%{_lib}" == "lib64"
-	for name in $(find . -name *.pro); do
-		sed -i "s,target.path.*, target.path = /lib64,g" $name
-	done
-%endif
+#%if "%{_lib}" == "lib64"
+#	for name in $(find . -name *.pro); do
+#		sed -i "s,target.path.*, target.path = /lib64,g" $name
+#	done
+#%endif
 
 %cmake -DBUILD_FINGERPRINT=ON -DBUILD_WITH_QT4=OFF ../..
 %make
