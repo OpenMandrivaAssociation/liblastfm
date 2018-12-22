@@ -84,7 +84,7 @@ using the libtag library.
 #{_libdir}/liblastfm.so.%{major}*
 
 %files -n %{libnamefinger}
-%{_libdir}/liblastfm_fingerprint.so.%{major}*
+#{_libdir}/liblastfm_fingerprint.so.%{major}*
 
 %files -n %{devname}
 %doc COPYING
