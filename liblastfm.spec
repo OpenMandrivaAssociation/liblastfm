@@ -81,7 +81,7 @@ using the libtag library.
 %makeinstall_std -C build
 
 %files -n %{libname}
-%{_libdir}/liblastfm.so.%{major}*
+#{_libdir}/liblastfm.so.%{major}*
 
 %files -n %{libnamefinger}
 %{_libdir}/liblastfm_fingerprint.so.%{major}*
