@@ -27,6 +27,7 @@ BuildRequires:  pkgconfig(Qt5Network)
 BuildRequires:  pkgconfig(Qt5Sql)
 BuildRequires:  pkgconfig(Qt5Xml)
 BuildRequires:  pkgconfig(Qt5Test) 	
+BuildRequires:  qmake5
 
 %description
 Liblastfm is a collection of libraries to help you integrate Last.fm services
