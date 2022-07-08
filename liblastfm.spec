@@ -5,20 +5,15 @@
 
 Summary:	Liblastfm is a collection of libraries to help you integrate Last.fm services
 Name:		liblastfm
-Version:	1.0.9
+Version:	1.1.0
 Release:	1
 License:	GPLv3
 Group:		System/Libraries
 Url:		https://github.com/lastfm/liblastfm
 Source0:	https://github.com/lastfm/liblastfm/archive/%{version}/%{name}-%{version}.tar.gz
-## upstream patches
-Patch0:         0001-Make-sure-liblastfm-creates-the-dirs-it-tries-to-wor.patch
-Patch1:         0003-Add-LASTFM_LIB_VERSION_SUFFIX-to-include-dir-as-well.patch
-Patch2:         liblastfm-1.0.9-fix-build-against-qt-5.11.0.patch
-### Qt4 BuildRequires
+
 BuildRequires:	cmake
 BuildRequires:	ruby
-#BuildRequires:	qt4-devel
 BuildRequires:	pkgconfig(samplerate)
 BuildRequires:	pkgconfig(fftw3)
 #qt5
@@ -75,18 +70,15 @@ using the libtag library.
 #%endif
 
 %cmake -DBUILD_FINGERPRINT=ON -DBUILD_WITH_QT4=OFF ../..
-%make
+%make_build
 
 %install
-%makeinstall_std -C build
+%make_install -C build
 
 %files -n %{libname}
 %{_libdir}/liblastfm5.so.%{major}*
-%{_libdir}/liblastfm5.so.%{version}*
-
 %files -n %{libnamefinger}
 %{_libdir}/liblastfm_fingerprint5.so.%{major}*
-%{_libdir}/liblastfm_fingerprint5.so.%{version}*
 
 %files -n %{devname}
 %doc COPYING
