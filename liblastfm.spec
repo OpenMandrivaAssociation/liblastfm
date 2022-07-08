@@ -12,7 +12,7 @@ Group:		System/Libraries
 Url:		https://github.com/lastfm/liblastfm
 Source0:	https://github.com/lastfm/liblastfm/archive/%{version}/%{name}-%{version}.tar.gz
 ## upstream patches
-Patch0:         0001-Make-sure-liblastfm-creates-the-dirs-it-tries-to-wor.patch
+#Patch0:         0001-Make-sure-liblastfm-creates-the-dirs-it-tries-to-wor.patch
 Patch1:         0003-Add-LASTFM_LIB_VERSION_SUFFIX-to-include-dir-as-well.patch
 Patch2:         liblastfm-1.0.9-fix-build-against-qt-5.11.0.patch
 ### Qt4 BuildRequires
