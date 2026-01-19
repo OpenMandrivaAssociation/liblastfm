@@ -6,13 +6,14 @@
 Summary:	Liblastfm is a collection of libraries to help you integrate Last.fm services
 Name:		liblastfm
 Version:	1.1.0
-Release:	2
+Release:	3
 License:	GPLv3
 Group:		System/Libraries
 Url:		https://github.com/lastfm/liblastfm
 Source0:	https://github.com/lastfm/liblastfm/archive/%{version}/%{name}-%{version}.tar.gz
 
 BuildRequires:	cmake
+BuildRequires:  make
 BuildRequires:	ruby
 BuildRequires:	pkgconfig(samplerate)
 BuildRequires:	pkgconfig(fftw3)
