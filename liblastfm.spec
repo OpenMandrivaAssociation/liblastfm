@@ -60,8 +60,7 @@ Install this package if you want do compile applications i
 using the libtag library.
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
 %build
 #%if "%{_lib}" == "lib64"
